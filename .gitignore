@@ -1,0 +1,8 @@
+#gitignore file. put here the names of the files or extensions to ignore on commits.
+#
+#
+#ignore genereted object files
+*.o
+#
+#ignore windows executable files
+*.exe
