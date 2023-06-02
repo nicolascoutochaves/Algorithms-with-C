@@ -11,7 +11,7 @@ int main(){
 	long double resultado;
 	int flag = 0; //variavel verificadora de erros
 	
-	printf("Calculadora.\nOperacoes aceitas: +, -, *, /, e (potenciacao), v (radiciacao)\nExemplo: 13 * 4, 2v100, 3e2.\n\nDigite a operacao matematica: ");
+	printf("Calculadora.\nOperacoes aceitas: +, -, *, /, p (potenciacao), v (radiciacao)\nExemplo: 13 * 4, 2 v 100, 3 p 2.\n\nDigite a operacao matematica: ");
 	scanf("%Lf %c%Lf", &n1, &operador, &n2);
 	operador = tolower(operador);
 	switch(operador){
@@ -33,15 +33,15 @@ int main(){
 			  }
                           break;
 			  
-		case 'e':  if (n1 == 0 && n2 < 0 || n1 < 0 && n2!=(int)n2){
-				  printf("[Erro] O dominio da funcao e:\n(n1 E R: (n1 >= 0 e n2 > 0) ou (n1 < 0 e n2 E Z))\n");
+		case 'p':  if (n1 == 0 && n2 < 0){
+				  printf("[Erro] O dominio da funcao e:\n(n1 E R:(n1 > 0 e n2 E R) ou (n1 = 0 e n2 > 0) ou (n1 < 0 e n2 E R))\n");
 				  flag = 1;
 			  } else{ 
 			  resultado = pow (n1, n2);
                           break;
 			  }
 			  
-		case 'v': if(n2 < 0){
+		case 'v': if(n2 < 0 && (int)n1 % 2 == 0){
 				  flag = 1;
 				  printf("Raiz inválida (n2 < 0)\n");
 			  } else{

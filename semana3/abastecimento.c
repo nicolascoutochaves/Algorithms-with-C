@@ -1,25 +1,25 @@
 /* Esse programa analisa os precos de combustiveis e identifica qual tem o melhor custo x beneficio
 entradas: gascomum, gasadt, etanol
 saidas: cideal
-variaveis auxiliares: razao, gasbarata
+variaveis auxiliares: razao
 */
 
 #include <stdio.h>
 int main(){
-    float gascomum, gasadt, etanol; // precos de gasolina comum, gasolina aditivada e etanol
+    double gascomum, gasadt, etanol; // precos de gasolina comum, gasolina aditivada e etanol
     int cideal; //recebe o codigo do combustivel
 
-    float razao; //variavel que auxilia no calculo do custo beneficio
+    double razao; //variavel que auxilia no calculo do custo beneficio
 
     printf("Calculadora de custo x beneficio.\nDigite os precos dos combustiveis:\n\n");
     printf("Gasolina aditivada: R$");
-    scanf("%f", &gasadt);
+    scanf("%lf", &gasadt);
 
     printf("Gasolina comum: R$");
-    scanf("%f", &gascomum);
+    scanf("%lf", &gascomum);
 
     printf("Etanol: R$");
-    scanf("%f", &etanol);
+    scanf("%lf", &etanol);
 
     if (gascomum >= gasadt){
         razao = etanol / gasadt;
@@ -27,22 +27,22 @@ int main(){
     } else {
         razao = etanol / gascomum;
     }
-    //printf("Razao = %f\n", razao); //Teste
+    //printf("Razao = %lf\n", razao); //Teste da razao
 
-    if(razao < (float)7/10){
+    if(razao < (double)0.70){
             cideal = 1; //cideal == etanol
 
-    } else if((razao >= (float)7/10) && (gascomum >= gasadt)){
+    } else if((razao >= (double)0.70) && (gascomum >= gasadt)){
             cideal = 2; //cideal == gasolina aditivada
 
-    } else if((razao >= (float)7/10) && (gascomum < gasadt)){
+    } else if((razao > (double)0.70) && (gascomum < gasadt)){
             cideal = 3; //cideal == gasolina comum
     }
     else {
         cideal = 4; // sem preferencia
     }
 
-    //printf("cideal = %d\n", cideal); //Teste
+    //printf("cideal = %d\n", cideal); //Teste do tipo de combustivel
 
     printf("O combustivel ideal e: ");
     switch(cideal){
@@ -52,7 +52,7 @@ int main(){
             break;
         case 3: printf("gasolina comum\n");
             break;
-        default: ("Nao ha preferencia de combustivel\n");
+        default: printf("Nao ha preferencia de combustivel\n");
     }
 
     return 0;
