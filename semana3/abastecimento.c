@@ -11,15 +11,15 @@ int main(){
 
     double razao; //variavel que auxilia no calculo do custo beneficio
 
-    printf("Calculadora de custo x beneficio.\nDigite os precos dos combustiveis:\n\n");
-    printf("Gasolina aditivada: R$");
-    scanf("%lf", &gasadt);
+    printf("Calculadora de custo x beneficio.\nDigite os precos do litro dos combustiveis:\n\n");
+    printf("Etanol: R$");
+    scanf("%lf", &etanol);
 
     printf("Gasolina comum: R$");
     scanf("%lf", &gascomum);
-
-    printf("Etanol: R$");
-    scanf("%lf", &etanol);
+    
+    printf("Gasolina aditivada: R$");
+    scanf("%lf", &gasadt);
 
     if (gascomum >= gasadt){
         razao = etanol / gasadt;
