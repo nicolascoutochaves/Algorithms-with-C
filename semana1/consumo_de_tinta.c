@@ -29,7 +29,7 @@ int main(){
 	printf("Digite o custo da lata de tinta: R$");
 	scanf("%f", &custotinta);
 
-	printf("Digite o rendimento por m² da tinta (vide rótulo): ");
+	printf("Digite o rendimento por m2 da tinta (vide rótulo): ");
 	scanf("%f", &rendimentotinta);
 
 	area = largura * comprimento;
@@ -37,7 +37,6 @@ int main(){
 	custototal = numerodelatas * custotinta;
 
 	printf("\nVocê precisará de: %d latas de tinta.\nO custo total será de: R$%.2f \n\n", numerodelatas, custototal);
-
 
 	return 0;
 }
