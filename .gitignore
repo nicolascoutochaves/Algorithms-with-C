@@ -6,3 +6,7 @@
 #
 #ignore windows executable files
 *.exe
+#
+#igore vscode folder
+.vscode
+.vscode/tasks.json
