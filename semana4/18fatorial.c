@@ -7,7 +7,7 @@ int main(){
     int n; //variaveis de controle
     printf("Fatorial.\nDigite o numero para realizar a operacao: ");
     scanf("%d", &a);
-    
+
     if (a > 0){
 
         for(n = a; n >= 1; n--){
