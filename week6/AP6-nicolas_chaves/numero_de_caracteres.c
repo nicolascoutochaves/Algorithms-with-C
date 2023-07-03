@@ -11,15 +11,14 @@ Saidas: quantidade de caracteres que repetem 2 ou mais vezes.
 
 int main(){
 
-    char s[MAX] = {};
-    char s2[MAX] = {};
-    int i, j;
+    char s[MAX+1] = {};
+    char s2[MAX+1] = {};
+    int i, j, contador = 1;
 
     printf("Analisador de caracteres repetidos\nDigite uma palavra a ser analisada: ");
 
     if (fgets(s, MAX+1, stdin) != NULL){
-        s[strlen(s)-1] = '\0'; // Atribui o '\0' na ultima posição da string.
-        puts(s);
+        s[strlen(s)-1] = '\0'; // Atribui o '\0' na ultima posiï¿½ï¿½o da string.
         }
       else {
         puts("Erro");
@@ -29,20 +28,30 @@ int main(){
 
     for(i = 0; i < strlen(s); i++){
 
-        for(j = 0; j < strlen(s); j++){
+        for(j = i+1; j < strlen(s); j++){
 
             if (s[i] == s[j]) { //Verifica se um valor repete ao longo da string
 
-                s2[i] = s[i]; //Atribui o valor repetido na string 2
+                s2[i] = s[i];
+
+                contador += 1;
+                
+                
 
 
-                printf("%c e igual a %c\n", s[i], s[j]);
+                //printf("%c e igual a %c\n", s[i], s[j]);
 
             } else{
-                printf("%c nao e igual a %c\n", s[i], s[j]);
+                //printf("%c nao e igual a %c\n", s[i], s[j]);
             }
-
         }
+
+        if (contador > 1){
+            printf("O caractere %c aparece %d vezes\n", s[i], contador);
+        }
+        contador = 1;
+
+
     }
 
     puts(s2);
