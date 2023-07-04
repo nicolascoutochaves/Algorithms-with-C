@@ -13,7 +13,7 @@ int main(){
 
     char s[MAX+1] = {};
     char s2[MAX+1] = {};
-    int i, j, contador = 1;
+    int i, j, k, flag = 0, contador = 1;
 
     printf("Analisador de caracteres repetidos\nDigite uma palavra a ser analisada: ");
 
@@ -30,26 +30,25 @@ int main(){
 
         for(j = i+1; j < strlen(s); j++){
 
+
             if (s[i] == s[j]) { //Verifica se um valor repete ao longo da string
-
                 s2[i] = s[i];
-
                 contador += 1;
                 
-                
-
-
                 //printf("%c e igual a %c\n", s[i], s[j]);
 
             } else{
                 //printf("%c nao e igual a %c\n", s[i], s[j]);
             }
+            
         }
 
-        if (contador > 1){
-            printf("O caractere %c aparece %d vezes\n", s[i], contador);
+        while (contador > 1 && i < strlen(s2)){
+            printf("O caractere %c aparece %d vezes\n", s2[i], contador);
+            contador = 1;
         }
-        contador = 1;
+        
+        
 
 
     }
