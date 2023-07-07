@@ -35,7 +35,7 @@ int main(){
         }
     } //Realiza o somatorio do quadrado dos termos da matriz
 
-    norma += sqrt(somatorio); //Realiza o calculo da norma
+    norma = sqrt(somatorio); //Realiza o calculo da norma
 
     //printf("%f\n", somatorio);
 
