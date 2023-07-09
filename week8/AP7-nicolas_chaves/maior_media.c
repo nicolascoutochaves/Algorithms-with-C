@@ -33,7 +33,7 @@ int main(){
         media /= (MAXNOTAS); //Calcula a media do aluno atual
         mediaturma += media;
         printf("Media de ");
-        printf(" %s e igual a: %.1f\n", nomealuno[i], media);
+        printf("%s e igual a: %.1f\n", nomealuno[i], media);
 
         notas[i][MAXNOTAS] = media; //Insere a media do aluno na ultima posicao de cada linha da matriz
 
