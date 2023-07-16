@@ -21,10 +21,10 @@ int main(void){
     {
     // Trata entrada do usu´ario e atualiza estado do jogo
     //----------------------------------------------------------------------------------
-        if (IsKeyDown(KEY_RIGHT)) x += VELOCIDADE;
-        if (IsKeyDown(KEY_LEFT)) x -= VELOCIDADE;
-        if (IsKeyDown(KEY_UP)) y -= VELOCIDADE;
-        if (IsKeyDown(KEY_DOWN)) y += VELOCIDADE;
+        if (IsKeyDown(KEY_D)) x += VELOCIDADE;
+        if (IsKeyDown(KEY_A)) x -= VELOCIDADE;
+        if (IsKeyDown(KEY_W)) y -= VELOCIDADE;
+        if (IsKeyDown(KEY_S)) y += VELOCIDADE;
 
         if ((x >= LARGURA || x <= 0 - LARGURA_QUADRADO ) || (y >= ALTURA || y <= 0 - ALTURA_QUADRADO)){
             flag = 1;
