@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#define X 20
-#define Y 20
+#define X 38
+#define Y 150
 
 int main(){
     int states[X][Y] = {0}, newstates[X][Y] = {0};
@@ -72,7 +72,7 @@ int main(){
                 printf("\n");
             }
 
-        printf("\nnext?");
+        //printf("next?");
         scanf("%c", &next);
  }while (next == '\n');
 
