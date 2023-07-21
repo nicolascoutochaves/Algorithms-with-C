@@ -2,15 +2,18 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <unistd.h>
 #define X 38
 #define Y 150
+
+
 
 int main(){
     int states[X][Y] = {0}, newstates[X][Y] = {0};
     char board[X][Y] = {};
     int i, j, k, l;
     int counter = 0, newstate;
-    char next = 'n';
+    char next = 's';
 
     srand(time(NULL));
     for(i = 0; i < X; i++){
@@ -64,17 +67,17 @@ int main(){
                 for(j = 0; j < Y; j++){
 
                     if (newstates[i][j] == 1){
-                        printf("@");
+                        printf("#");
                     } else{
-                        printf("*");
+                        printf(" ");
                     }
                 }
                 printf("\n");
             }
-
+        
+        usleep(200000);
         //printf("next?");
-        scanf("%c", &next);
- }while (next == '\n');
+ }while (next == 's');
 
 
 
