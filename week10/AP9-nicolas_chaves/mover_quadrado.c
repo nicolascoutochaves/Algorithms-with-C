@@ -19,6 +19,7 @@ int deveMover(int x, int y, int dx, int dy, int larg, int alt){
 }
 
 void move(int dx, int dy, int *x, int *y){
+
     if(dx > 0){
         *x += LADO; //Move para direita
     }
@@ -32,6 +33,7 @@ void move(int dx, int dy, int *x, int *y){
         *y += LADO; //Move para baixo
     }
 }
+
 int main(void)
 
 {
@@ -46,16 +48,16 @@ int main(void)
     while (!WindowShouldClose())
     {
         //Define as direcoes dx e dy:
-        if (IsKeyDown(KEY_RIGHT))
+        if (IsKeyDown(KEY_D))
             dx = 1;
 
-        if (IsKeyDown(KEY_LEFT))
+        if (IsKeyDown(KEY_A))
             dx = -1;
 
-        if (IsKeyDown(KEY_UP))
+        if (IsKeyDown(KEY_W))
             dy = 1;
 
-        if (IsKeyDown(KEY_DOWN))
+        if (IsKeyDown(KEY_S))
             dy = -1;
 
         if(deveMover(x, y, dx, dy, LARGURA, ALTURA))
