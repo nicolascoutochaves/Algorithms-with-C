@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 
-#define ALTURA 800
+#define ALTURA 600
 #define LARGURA 800
 #define MAX_INIMIGOS 10
 #define LADO 20
@@ -28,18 +28,18 @@ int moveInimigo(Personagem *Inimigo, int largura, int altura)
         Inimigo->x += Inimigo->dx * LADO;
         Inimigo->y -= Inimigo->dy * LADO;
     }
-
+ 
     return mover;
 }
 void redefineDeslocamento(Personagem *Inimigo){
     Inimigo->dx = 0;
     Inimigo->dy = 0;
 
-    while (Inimigo->dx == 0)
+    while (Inimigo->dx == 0 && Inimigo->dy == 0){
         Inimigo->dx = 1 - (rand() % 3);
-
-    while (Inimigo->dy == 0)
         Inimigo->dy = 1 - (rand() % 3);
+    }      
+    
 }
 
 
@@ -48,7 +48,8 @@ int main(){
     Personagem Inimigo[MAX_INIMIGOS];
 
     InitWindow(LARGURA, ALTURA, "JOGO");
-    SetTargetFPS(5);
+    SetTargetFPS(60);
+    int temporizador = 0;
     srand(time(NULL));
 
     for(i = 0; i < MAX_INIMIGOS; i++) {
@@ -62,11 +63,16 @@ int main(){
             DrawRectangle(Inimigo[i].x, Inimigo[i].y, LADO, LADO, ORANGE);
         }
 
-        for(i = 0; i < MAX_INIMIGOS; i++) {
-            if(!moveInimigo(&Inimigo[i], LARGURA, ALTURA));
-                redefineDeslocamento(&Inimigo[i]);
-        }
+        temporizador++;
 
+        if(temporizador > GetFrameTime()*180){
+            for(i = 0; i < MAX_INIMIGOS; i++) {
+                if(!moveInimigo(&Inimigo[i], LARGURA, ALTURA))
+                    redefineDeslocamento(&Inimigo[i]);
+            }
+            temporizador = 0;
+        }
+        
          BeginDrawing();
          ClearBackground(RAYWHITE);
          EndDrawing();
