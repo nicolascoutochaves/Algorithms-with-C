@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define ROWS 6
-#define COLUMNS 6
-#define MAX_RAND 100
+#define ROWS 5
+#define COLUMNS 5
+#define MAX_RAND 10
 
-void populateMatrix(int **m){
+void populateMatrix(int m[ROWS][COLUMNS]){
     int i, j;
     srand(time(NULL));
     for(i = 0; i < ROWS; i++){
@@ -16,36 +16,20 @@ void populateMatrix(int **m){
     }
 }
 
-void search(int n, int **m){
-    int i, j;
-    int flag = 0;
-
-    for(i = 0; i < ROWS; i++){
-        for(j = 0; j < COLUMNS; j++){
-            if(n == m[i][j]){
-                printf("%d found on line %d, column %d!\n", n, i+1, j+1);
-                flag = 1;
-            }
-        }
-    }
-    if(!flag){
-        printf("%d not found anywhere!\n", n);
-    }
-}
-
-void printMatrix(int **m){
-    int i, j;
+void printMainDiagonal(int m[ROWS][COLUMNS]){
+    int i, j, c = 0;
 
     for(j = 0; j < COLUMNS; j++){
         printf("%5d", j+1);
     }
     printf("\n\n");
-    for(i = 0; i < ROWS; i++){
+    for(i = 0; i < ROWS; i++, c++){
         printf("%d", i+1);
         
         for(j = 0; j < COLUMNS; j++){
-            
-            printf("%5d", m[i][j]);
+            if(j >= c)
+                printf("%5d", m[i][j]);
+            else printf("%5s", " ");
         }
         printf("\n");
     }
@@ -55,26 +39,10 @@ void printMatrix(int **m){
 
 int main(){
     int i, n;
-    int **m = NULL;
-    m = (int **) calloc (ROWS, sizeof(int *));
+    int m[ROWS][COLUMNS] = {0};
+    populateMatrix(m);  
+    printMainDiagonal(m);
 
-    for(i = 0; i < COLUMNS; i++)
-        m[i] = (int *) calloc (COLUMNS, sizeof(int));
-
-    populateMatrix(m);   
-
-    printMatrix(m);
-
-    printf("Enter the number to search: ");
-    scanf("%d", &n);
-
-    search(n, m);
-
-    free(m);
-    for(i = 0; i < COLUMNS; i++)
-        m[i] = NULL;
-
-    m = NULL;
 
     return 0;
 }
