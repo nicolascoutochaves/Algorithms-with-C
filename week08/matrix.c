@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define ROWS 5
-#define COLUMNS 4
-#define MAX_RAND 10
+#define ROWS 30
+#define COLUMNS 30
+#define MAX_RAND 2
 
 void populateVec(int v[], int length){
     int i;
@@ -28,16 +28,16 @@ void populateMatrix(int m[ROWS][COLUMNS]){
 
 void printMatrix(int m[ROWS][COLUMNS]){
     int i, j;
-
+    printf("        ");
     for(j = 0; j < COLUMNS; j++){
-        printf("%5d", j+1);
+        printf("%02d  ", j+1);
     }
     printf("\n\n");
     for(i = 0; i < ROWS; i++){
-        printf("%d", i+1);
+        printf("%02d   ", i+1);
         
         for(j = 0; j < COLUMNS; j++){
-            printf("%5d", m[i][j]);
+            printf("%4d", m[i][j]);
         }
         printf("\n");
     }
