@@ -1,4 +1,10 @@
-#include "matrix.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define ROWS 30
+#define COLUMNS 30
+#define MAX_RAND 2
 
 void populateVec(int v[], int length){
     int i;
