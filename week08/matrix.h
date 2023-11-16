@@ -20,7 +20,7 @@ void populateMatrix(int m[ROWS][COLUMNS]){
     srand(time(NULL)+(time_t)m);
     for(i = 0; i < ROWS; i++){
         for(j = 0; j < COLUMNS; j++){
-            m[i][j] = rand() % MAX_RAND;
+            m[i][j] = rand() % MAX_RAND - 1;
         }
     }
 }
@@ -30,11 +30,11 @@ void printMatrix(int m[ROWS][COLUMNS]){
     int i, j;
     printf("        ");
     for(j = 0; j < COLUMNS; j++){
-        printf("%02d  ", j+1);
+        printf("%02d  ", j);
     }
     printf("\n\n");
     for(i = 0; i < ROWS; i++){
-        printf("%02d   ", i+1);
+        printf("%02d   ", i);
         
         for(j = 0; j < COLUMNS; j++){
             printf("%4d", m[i][j]);
