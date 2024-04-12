@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include <unistd.h>
+#ifdef linux
+    #include <unistd.h>
+#elif _WIN32
+    #include <windows.h>
+#endif
+
 #define X 38
 #define Y 150
 
@@ -10,7 +15,7 @@
 
 int main(){
     int states[X][Y] = {0}, newstates[X][Y] = {0};
-    char board[X][Y] = {};
+    char board[X][Y] = {0};
     int i, j, k, l;
     int counter = 0, newstate;
     char next = 's';
@@ -74,8 +79,12 @@ int main(){
                 }
                 printf("\n");
             }
+        #ifdef linux
+            usleep(200000);
+        #elif _WIN32
+            Sleep(200);
+        #endif
         
-        usleep(200000);
         //printf("next?");
  }while (next == 's');
 

@@ -3,8 +3,8 @@
 #include <math.h>
 #define N_PERSON 5
 int main(){
-    float weight[N_PERSON] = {}, heigh[N_PERSON] = {};
-    float bmi[N_PERSON] = {};
+    float weight[N_PERSON] = {0}, heigh[N_PERSON] = {0};
+    float bmi[N_PERSON] = {0};
     int i;
     
     for (i = 0; i < N_PERSON; i++){

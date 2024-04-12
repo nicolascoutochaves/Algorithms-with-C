@@ -3,7 +3,7 @@
 #define MAX 10
 
 int main(){
-    int v[MAX] = {};
+    int v[MAX] = {0};
     int i, j;
     int tmp;
   

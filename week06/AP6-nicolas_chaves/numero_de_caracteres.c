@@ -11,8 +11,8 @@ Saidas: quantidade de caracteres que repetem 2 ou mais vezes.
 
 int main(){
 
-    char s[MAX+1] = {};
-    char s2[MAX+1] = {};
+    char s[MAX+1] = {0};
+    char s2[MAX+1] = {0};
     int i, j, k, flag = 0, contador = 1;
 
     printf("Analisador de caracteres repetidos\nDigite uma palavra a ser analisada: ");

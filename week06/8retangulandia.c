@@ -2,8 +2,8 @@
 #include <stdio.h>
 #define N_LANDS 5
 int main(){
-    float width[N_LANDS] = {}, heigh[N_LANDS] = {};
-    float area[N_LANDS] = {}, average = 0;
+    float width[N_LANDS] = {0}, heigh[N_LANDS] = {0};
+    float area[N_LANDS] = {0}, average = 0;
     int i, counter = 0;
     
     printf("Area calculator\nPlease, Enter the width and the heigh of the lands:\n");

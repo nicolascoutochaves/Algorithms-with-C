@@ -8,7 +8,7 @@ Saidas: desvio padrao e tolerencia.
 #define MAX 10
 
 int main(){
-    float resultados[MAX] = {}, tol; //dados do experimento e tolerancia
+    float resultados[MAX] = {0}, tol; //dados do experimento e tolerancia
     float desviopadrao = 0, somatorio =0, media = 0;
     int i, j;
 
